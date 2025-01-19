@@ -1,4 +1,4 @@
-import { Topsellers } from "../Topsellers";
+import Topsellers from "../Topsellers";
 import Banner from "./Banner";
 
 const Home = () => {
