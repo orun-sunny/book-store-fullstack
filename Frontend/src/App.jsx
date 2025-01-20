@@ -1,6 +1,7 @@
 import { Outlet } from "react-router";
 import "./App.css";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
         <Outlet />
       </main>
 
-      <footer className="text-center text-gray-500 text-xs">Gooter</footer>
+      <Footer />
     </>
   );
 }
