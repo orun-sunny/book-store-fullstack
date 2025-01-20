@@ -20,14 +20,12 @@ const navigation = [
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const currentUser = true;
+  const currentUser = false;
   // const cartItems = useSelector(state => state.cart.cartItems);
 
   // const {currentUser, logout} = useAuth()
 
-  const handleLogOut = () => {
-
-  };
+  const handleLogOut = () => {};
 
   // const token = localStorage.getItem('token');
 
@@ -97,7 +95,6 @@ const Navbar = () => {
               </>
             ) : (
               <Link to="/login">
-           
                 <HiOutlineUser className="size-6" />
               </Link>
               // <Link to="/dashboard" className="border-b-2 border-primary">
