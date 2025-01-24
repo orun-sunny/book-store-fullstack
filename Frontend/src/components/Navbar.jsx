@@ -10,6 +10,7 @@ import { IoSearchOutline } from "react-icons/io5";
 
 import avatarImg from "../assets/avatar.png";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const navigation = [
   { name: "Dashboard", href: "/user-dashboard" },
@@ -21,7 +22,7 @@ const navigation = [
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const currentUser = false;
-  // const cartItems = useSelector(state => state.cart.cartItems);
+  const cartItems = useSelector((state) => state.cart.cartItems);
 
   // const {currentUser, logout} = useAuth()
 

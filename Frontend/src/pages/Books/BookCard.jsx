@@ -1,17 +1,17 @@
 import { FiShoppingCart } from "react-icons/fi";
 import { getImgUrl } from "../../utils/getImgUrl";
 import { Link } from "react-router";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/features/cart/cartSlice";
 
 // import { Link } from "react-router-dom";
 
-// import { addToCart } from "../../redux/features/cart/cartSlice";
-
 const BookCard = ({ book }) => {
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  //   const handleAddToCart = (product) => {
-  //     dispatch(addToCart(product));
-  //   };
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+  };
   return (
     <div className=" rounded-lg transition-shadow duration-300">
       <div className="flex flex-col sm:flex-row sm:items-center sm:h-72  sm:justify-center gap-4">
@@ -43,7 +43,7 @@ const BookCard = ({ book }) => {
             </span>
           </p>
           <button
-            onClick={() => book}
+            onClick={() => handleAddToCart(book)}
             className="btn-primary px-6 space-x-1 flex items-center gap-1 "
           >
             <FiShoppingCart className="" />
