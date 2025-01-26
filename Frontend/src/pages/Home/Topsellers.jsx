@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import BookCard from "../Books/BookCard";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -10,6 +10,7 @@ import { Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { useFetchAllBooksQuery } from "../../redux/features/books/booksApi";
 
 const categories = [
   "Choose a genre",
@@ -19,18 +20,12 @@ const categories = [
   "Adventure",
 ];
 
-const Topsellers = () => {
-  const [books, setBooks] = useState([]);
-
+const TopSellers = () => {
+  // const [books, setBooks] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("Choose a genre");
 
-  useEffect(() => {
-    fetch("books.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setBooks(data);
-      });
-  }, []);
+  const { data: books = [] } = useFetchAllBooksQuery();
+  console.log(books);
 
   const filteredBooks =
     selectedCategory === "Choose a genre"
@@ -38,8 +33,6 @@ const Topsellers = () => {
       : books.filter(
           (book) => book.category === selectedCategory.toLowerCase()
         );
-
-  console.log(filteredBooks);
 
   return (
     <div className="py-10">
@@ -59,6 +52,7 @@ const Topsellers = () => {
           ))}
         </select>
       </div>
+
       <Swiper
         slidesPerView={1}
         spaceBetween={30}
@@ -95,4 +89,4 @@ const Topsellers = () => {
   );
 };
 
-export default Topsellers;
+export default TopSellers;

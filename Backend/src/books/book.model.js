@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
 const bookSchema = new mongoose.Schema({
-
     title: {
         type: String,
         required: true,
@@ -13,11 +12,10 @@ const bookSchema = new mongoose.Schema({
     category: {
         type: String,
         required: true,
-
     },
     trending: {
         type: Boolean,
-        default: false,
+        required: true,
     },
     coverImage: {
         type: String,
@@ -26,17 +24,19 @@ const bookSchema = new mongoose.Schema({
     oldPrice: {
         type: Number,
         required: true,
-        min: 0,
     },
     newPrice: {
         type: Number,
         required: true,
-        min: 0,
     },
     createdAt: {
         type: Date,
         default: Date.now,
-    },
-}, { timestamps: true });
+    }
+}, {
+    timestamps: true,
+});
+
 const Book = mongoose.model('Book', bookSchema);
+
 module.exports = Book;
